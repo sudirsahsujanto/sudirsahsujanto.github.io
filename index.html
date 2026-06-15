@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prabowo Subianto Website</title>
+    <meta name="description" content="Selamat datang di website prabowosubianto.com, situs web yang menyajikan biografi, informasi, dan pemikiran Prabowo Subianto dalam mewujudkan Indonesia maju.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: '#DDA64F',
+                        goldHover: '#c58d38',
+                        darkBg: '#191919',
+                        darkerBg: '#111111',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for hiding scrollbars in horizontal sliders but keeping functionality */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="font-inter text-gray-800 bg-gray-50 overflow-x-hidden">
+
+    <!-- Header Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-white shadow-md transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#">
+                        <img class="h-12 w-auto" src="https://prabowosubianto.com/wp-content/uploads/2023/12/TTD-Prabowo-300x88.png" alt="Prabowo Subianto Logo">
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center font-poppins font-medium text-sm">
+                    <a href="#" class="text-gray-800 hover:text-gold transition duration-300">Tentang Prabowo</a>
+                    <a href="#" class="text-gray-800 hover:text-gold transition duration-300">Berita</a>
+                    <a href="#" class="text-gray-800 hover:text-gold transition duration-300">Pojok Prabowo</a>
+                    <a href="#" class="text-gray-800 hover:text-gold transition duration-300">Testimoni</a>
+                    <a href="#" class="text-gray-800 hover:text-gold transition duration-300">Multimedia</a>
+                    <button class="text-gray-800 hover:text-gold transition duration-300">
+                        <i class="fas fa-search text-lg"></i>
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-800 hover:text-gold focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 font-poppins text-center">
+                <a href="#" class="block px-3 py-2 text-gray-800 hover:text-gold hover:bg-gray-50 rounded-md">Tentang Prabowo</a>
+                <a href="#" class="block px-3 py-2 text-gray-800 hover:text-gold hover:bg-gray-50 rounded-md">Berita</a>
+                <a href="#" class="block px-3 py-2 text-gray-800 hover:text-gold hover:bg-gray-50 rounded-md">Pojok Prabowo</a>
+                <a href="#" class="block px-3 py-2 text-gray-800 hover:text-gold hover:bg-gray-50 rounded-md">Testimoni</a>
+                <a href="#" class="block px-3 py-2 text-gray-800 hover:text-gold hover:bg-gray-50 rounded-md">Multimedia</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative mt-20 w-full h-[60vh] md:h-[80vh] flex items-center justify-center overflow-hidden bg-gray-900">
+        <!-- Background Image -->
+        <div class="absolute inset-0 w-full h-full">
+            <img src="https://prabowosubianto.com/wp-content/uploads/2024/04/PRABOWO-SUBIANTO-BRAND-NOTRANS-1024x718.png" alt="Prabowo Subianto" class="w-full h-full object-cover object-top opacity-70">
+        </div>
+        
+        <!-- Shape Divider Bottom -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+            <svg class="relative block w-[calc(100%+1.3px)] h-[50px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                <path fill="#f9fafb" d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7c75.8,32.2,133.7,44.5,192.6,49.7 c23.6,2.1,48.7,3.5,103.4-2.5c54.7-6,106.2-25.6,106.2-25.6V0H0v30.3c0,0,72,32.6,158.4,30.5c39.2-0.7,92.8-6.7,134-22.4 c21.2-8.1,52.2-18.2,79.7-24.2C399.3,7.9,411.6,7.5,421.9,6.5z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section (Mengenal Lebih Dekat) -->
+    <section class="py-16 md:py-24 bg-gray-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- Video/Image Box -->
+                <div class="w-full lg:w-1/2 relative">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl relative group">
+                        <img src="https://prabowosubianto.com/wp-content/uploads/2024/02/pidato2-prabowo-768x1142.webp" alt="Prabowo Pidato" class="w-full h-[400px] object-cover transition duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center transition duration-500 group-hover:bg-opacity-40">
+                            <a href="https://www.youtube.com/@djojohadikusumo" target="_blank" class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg text-gold hover:text-goldHover hover:scale-110 transition duration-300">
+                                <i class="fas fa-play text-3xl ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="w-full lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-poppins font-bold text-gray-900 mb-6">Mengenal Lebih Dekat Prabowo Subianto</h2>
+                    <div class="space-y-4 text-gray-600 leading-relaxed mb-8 text-lg">
+                        <p>Prabowo adalah seorang tokoh politik Indonesia. Ia adalah mantan perwira militer dan pernah menjabat sebagai Komandan Jenderal Kopassus, pasukan khusus TNI-AD. Selain itu, Prabowo juga pernah menjadi calon presiden dalam dua pemilihan presiden Indonesia, yaitu pada tahun 2014 dan 2019.</p>
+                        <p>Ia merupakan pendiri dan ketua Partai Gerakan Indonesia Raya (Gerindra) dan saat ini ia menjabat sebagai Menteri Pertahanan Republik Indonesia 2019-2024 Kabinet Indonesia Maju Presiden Joko Widodo. Prabowo memiliki pengalaman di bidang militer dan politik, dan memiliki basis pendukung yang signifikan di Indonesia.</p>
+                    </div>
+                    <a href="#" class="inline-block bg-gold hover:bg-goldHover text-white font-poppins font-semibold py-3 px-8 rounded-full shadow-md transition duration-300 transform hover:-translate-y-1">
+                        Selengkapnya
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision / 8 Program Section -->
+    <section class="py-16 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-poppins font-extrabold text-gray-900 tracking-tight">Prabowo Subianto</h1>
+            <h2 class="text-2xl md:text-3xl font-poppins font-semibold text-gold mt-2">Bersama Indonesia Maju</h2>
+            <div class="w-24 h-1 bg-gold mx-auto mt-6 rounded-full"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
+                
+                <!-- Left Column (Points 1-4) -->
+                <div class="space-y-8">
+                    <!-- Point 1 -->
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-poppins font-bold text-xl text-gold border border-gold">01</div>
+                        <div>
+                            <p class="text-gray-700 text-sm md:text-base">Memperkokoh ideologi Pancasila, demokrasi, dan hak asasi manusia (HAM).</p>
+                        </div>
+                    </div>
+                    <!-- Point 2 -->
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-poppins font-bold text-xl text-gold border border-gold">02</div>
+                        <div>
+                            <p class="text-gray-700 text-sm md:text-base">Memperkokoh sistem pertahanan dan keamanan, mendorong kemandirian nasional melalui swasembada di berbagai sektor.</p>
+                        </div>
+                    </div>
+                    <!-- Point 3 -->
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-poppins font-bold text-xl text-gold border border-gold">03</div>
+                        <div>
+                            <p class="text-gray-700 text-sm md:text-base">Pengembangan infrastruktur, peningkatan lapangan kerja berkualitas, pengembangan kewirausahaan dan industri kreatif, serta agro-maritim.</p>
+                        </div>
+                    </div>
+                    <!-- Point 4 -->
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-poppins font-bold text-xl text-gold border border-gold">04</div>
+                        <div>
+                            <p class="text-gray-700 text-sm md:text-base">Penguatan SDM, pendidikan, kesehatan, olahraga, kesetaraan gender, dan pemberdayaan perempuan, pemuda, serta penyandang disabilitas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Middle Column (Image) - Hidden on Mobile, visible on Large -->
+                <div class="hidden lg:flex justify-center">
+                    <img src="https://prabowosubianto.com/wp-content/uploads/2024/04/Prabowo-Subianto-About-e1714097218277.png" alt="Prabowo Silhouette" class="max-h-[600px] object-contain drop-shadow-xl hover:scale-105 transition duration-500">
+                </div>
+
+                <!-- Right Column (Points 5-8) -->
+                <div class="space-y-8">
+                    <!-- Point 5 -->
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-poppins font-bold text-xl text-gold border border-gold">05</div>
+                        <div>
+                            <p class="text-gray-700 text-sm md:text-base">Pengembangan hilirisasi industri berbasis sumber daya alam untuk meningkatkan nilai tambah domestik.</p>
+                        </div>
+                    </div>
+                    <!-- Point 6 -->
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-poppins font-bold text-xl text-gold border border-gold">06</div>
+                        <div>
+                            <p class="text-gray-700 text-sm md:text-base">Pembangunan dari desa untuk pertumbuhan ekonomi, pemerataan, dan pemberantasan kemiskinan.</p>
+                        </div>
+                    </div>
+                    <!-- Point 7 -->
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-poppins font-bold text-xl text-gold border border-gold">07</div>
+                        <div>
+                            <p class="text-gray-700 text-sm md:text-base">Penguatan reformasi politik, hukum, dan birokrasi, serta pemberantasan korupsi, narkoba, judi, dan penyelundupan.</p>
+                        </div>
+                    </div>
+                    <!-- Point 8 -->
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-poppins font-bold text-xl text-gold border border-gold">08</div>
+                        <div>
+                            <p class="text-gray-700 text-sm md:text-base">Penyelarasan kehidupan yang harmonis dengan lingkungan, alam, dan budaya, serta meningkatkan toleransi antarumat beragama untuk masyarakat yang adil dan makmur.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Quotes Section -->
+    <section class="py-16 bg-darkBg text-white relative border-y-4 border-gold">
+        <!-- Background Pattern/Image Overlay -->
+        <div class="absolute inset-0 opacity-20 bg-[url('https://prabowosubianto.com/wp-content/uploads/2024/05/Gradasi-Quotes.png')] bg-cover bg-center"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Horizontal scroll container -->
+            <div class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory gap-6 pb-4">
+                
+                <!-- Quote 1 -->
+                <div class="snap-center shrink-0 w-full md:w-1/2 lg:w-1/3 flex flex-col items-center bg-darkerBg p-8 rounded-2xl shadow-lg border border-gray-800">
+                    <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center text-darkBg text-xl mb-6">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-center font-poppins font-bold text-lg mb-8 min-h-[80px]">"Semua guru tekun mencerdaskan bangsa dan hidupnya dijamin pemerintah."</p>
+                    <div class="mt-auto text-gold font-poppins text-sm tracking-wider uppercase">Prabowo Subianto</div>
+                </div>
+
+                <!-- Quote 2 -->
+                <div class="snap-center shrink-0 w-full md:w-1/2 lg:w-1/3 flex flex-col items-center bg-darkerBg p-8 rounded-2xl shadow-lg border border-gray-800">
+                    <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center text-darkBg text-xl mb-6">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-center font-poppins font-bold text-lg mb-8 min-h-[80px]">"Impian kami semua rakyat indonesia mendapatkan pekerjaan yang layak."</p>
+                    <div class="mt-auto text-gold font-poppins text-sm tracking-wider uppercase">Prabowo Subianto</div>
+                </div>
+
+                <!-- Quote 3 -->
+                <div class="snap-center shrink-0 w-full md:w-1/2 lg:w-1/3 flex flex-col items-center bg-darkerBg p-8 rounded-2xl shadow-lg border border-gray-800">
+                    <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center text-darkBg text-xl mb-6">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-center font-poppins font-bold text-lg mb-8 min-h-[80px]">"Semua buruh bisa tidur tenang karena menerima penghasilan yang cukup."</p>
+                    <div class="mt-auto text-gold font-poppins text-sm tracking-wider uppercase">Prabowo Subianto</div>
+                </div>
+
+                 <!-- Quote 4 -->
+                 <div class="snap-center shrink-0 w-full md:w-1/2 lg:w-1/3 flex flex-col items-center bg-darkerBg p-8 rounded-2xl shadow-lg border border-gray-800">
+                    <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center text-darkBg text-xl mb-6">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-center font-poppins font-bold text-lg mb-8 min-h-[80px]">"Semua petani bisa tersenyum karena harga jual produk mereka bagus."</p>
+                    <div class="mt-auto text-gold font-poppins text-sm tracking-wider uppercase">Prabowo Subianto</div>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-4 text-gray-400 text-sm md:hidden">
+                <i class="fas fa-arrows-alt-h mr-2"></i> Geser untuk melihat lainnya
+            </div>
+        </div>
+    </section>
+
+    <!-- Berita & Pojok Prabowo Section -->
+    <section class="py-16 bg-white bg-[url('https://prabowosubianto.com/wp-content/uploads/2024/04/01_Home_01-1-1.png')] bg-fixed bg-cover bg-no-repeat bg-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                
+                <!-- Berita Utama Column -->
+                <div class="lg:col-span-2">
+                    <div class="flex justify-between items-end border-b-2 border-gray-200 pb-4 mb-8">
+                        <h3 class="text-2xl font-poppins font-bold text-gray-900">BERITA</h3>
+                        <a href="#" class="bg-gold hover:bg-goldHover text-white text-xs font-semibold py-2 px-4 rounded transition duration-300">Selengkapnya</a>
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <!-- Main News Card -->
+                        <div class="group cursor-pointer">
+                            <div class="overflow-hidden rounded-xl shadow-md mb-4 relative">
+                                <img src="https://placehold.co/800x450/eeeeee/333333?text=Berita+Utama" alt="News Image" class="w-full h-[300px] object-cover transition duration-500 group-hover:scale-105">
+                                <div class="absolute top-4 left-4 bg-gold text-white text-xs font-bold px-3 py-1 rounded">Berita Pilihan</div>
+                            </div>
+                            <div class="flex items-center text-gold text-sm font-semibold mb-2">
+                                <i class="far fa-calendar-alt mr-2"></i> Juni 15, 2026
+                            </div>
+                            <h2 class="text-2xl font-poppins font-bold text-gray-900 group-hover:text-gold transition duration-300">Papuan Farmers Support People's Rice Field Printing Program to Meet Food Needs, Respond to Changing Times</h2>
+                        </div>
+
+                        <!-- Secondary News List -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- List Item 1 -->
+                            <div class="group flex gap-4 cursor-pointer bg-white p-3 rounded-lg border border-dashed border-gray-300 hover:shadow-lg transition">
+                                <img src="https://placehold.co/300x200/eeeeee/333333?text=Berita+1" alt="Thumbnail" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div class="flex flex-col justify-center">
+                                    <div class="text-gold text-xs font-semibold mb-1"><i class="far fa-calendar-alt mr-1"></i> Juni 14, 2026</div>
+                                    <h4 class="text-sm font-poppins font-semibold text-gray-900 group-hover:text-gold transition line-clamp-3">Qodari on Fuel Price Protest: Prabowo Prepares Various Strategies Toward Energy Resilience</h4>
+                                </div>
+                            </div>
+                            <!-- List Item 2 -->
+                            <div class="group flex gap-4 cursor-pointer bg-white p-3 rounded-lg border border-dashed border-gray-300 hover:shadow-lg transition">
+                                <img src="https://placehold.co/300x200/eeeeee/333333?text=Berita+2" alt="Thumbnail" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
+                                <div class="flex flex-col justify-center">
+                                    <div class="text-gold text-xs font-semibold mb-1"><i class="far fa-calendar-alt mr-1"></i> Juni 14, 2026</div>
+                                    <h4 class="text-sm font-poppins font-semibold text-gray-900 group-hover:text-gold transition line-clamp-3">Responding to Student Demands, M. Qodari: MBG Beneficiaries Are Real, Government Ready to Evaluate</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pojok Prabowo Column -->
+                <div class="lg:col-span-1">
+                    <div class="flex justify-between items-end border-b-2 border-gray-200 pb-4 mb-8">
+                        <h3 class="text-2xl font-poppins font-bold text-gray-900 uppercase">Pojok Prabowo</h3>
+                        <a href="#" class="bg-gold hover:bg-goldHover text-white text-xs font-semibold py-2 px-4 rounded transition duration-300">Selengkapnya</a>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
+                        <!-- Pojok Card 1 -->
+                        <div class="group cursor-pointer">
+                            <div class="overflow-hidden rounded-xl shadow-md mb-3">
+                                <img src="https://placehold.co/400x250/eeeeee/333333?text=Pojok+1" alt="Pojok Image" class="w-full h-[180px] object-cover transition duration-500 group-hover:scale-105">
+                            </div>
+                            <div class="text-gold text-xs font-semibold mb-1"><i class="far fa-calendar-alt mr-1"></i> April 4, 2026</div>
+                            <h4 class="text-base font-poppins font-semibold text-gray-900 group-hover:text-gold transition line-clamp-2">Rajin dan Konsisten, Penyandang Disabilitas Ini Jadi Tulang Punggung Kebersihan Dapur MBG di Karanganyar</h4>
+                        </div>
+                        
+                        <!-- Pojok Card 2 -->
+                        <div class="group cursor-pointer">
+                            <div class="overflow-hidden rounded-xl shadow-md mb-3">
+                                <img src="https://placehold.co/400x250/eeeeee/333333?text=Pojok+2" alt="Pojok Image" class="w-full h-[180px] object-cover transition duration-500 group-hover:scale-105">
+                            </div>
+                            <div class="text-gold text-xs font-semibold mb-1"><i class="far fa-calendar-alt mr-1"></i> Februari 14, 2026</div>
+                            <h4 class="text-base font-poppins font-semibold text-gray-900 group-hover:text-gold transition line-clamp-2">OPINI: Setahun MBG, Menakar Manfaat dan Rasionalitas Investasi Negara</h4>
+                        </div>
+                        
+                        <!-- Pojok Card 3 -->
+                        <div class="group cursor-pointer hidden lg:block">
+                            <div class="overflow-hidden rounded-xl shadow-md mb-3">
+                                <img src="https://placehold.co/400x250/eeeeee/333333?text=Pojok+3" alt="Pojok Image" class="w-full h-[180px] object-cover transition duration-500 group-hover:scale-105">
+                            </div>
+                            <div class="text-gold text-xs font-semibold mb-1"><i class="far fa-calendar-alt mr-1"></i> Juni 12, 2025</div>
+                            <h4 class="text-base font-poppins font-semibold text-gray-900 group-hover:text-gold transition line-clamp-2">Janji Presiden Ditepati</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni Section -->
+    <section class="py-16 bg-gray-50 relative border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-poppins font-bold text-gray-900 mb-10 text-center">TESTIMONI</h3>
+            
+            <div class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory gap-8 pb-8 px-2">
+                
+                <!-- Testimoni 1 -->
+                <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] relative bg-white border border-gray-200 rounded-2xl p-6 pt-10 shadow-lg flex flex-col justify-between mt-8">
+                    <!-- Icon Quote top left overlapping -->
+                    <div class="absolute -top-6 -left-2 w-12 h-12 bg-white rounded-full flex items-center justify-center border shadow-sm">
+                        <i class="fas fa-quote-left text-gold text-xl"></i>
+                    </div>
+                    
+                    <p class="text-gray-700 italic mb-6">"<strong>Saya akan ikut berdoa dan ikut berusaha agar apa yang jadi cita-cita Pak Prabowo dan teman-teman dari PPRI bisa terwujud</strong> di kemudian hari. Mudah mudahan Allah meridhai perjuangan kita."</p>
+                    
+                    <div class="flex items-end justify-between mt-auto bg-gradient-to-t from-gray-100 to-transparent -mx-6 -mb-6 p-6 rounded-b-2xl border-t border-gray-100">
+                        <div>
+                            <h4 class="font-poppins font-bold text-gray-900">Wiranto</h4>
+                            <p class="text-xs text-gold font-semibold uppercase">Ketua Watimpres</p>
+                        </div>
+                        <img src="https://prabowosubianto.com/wp-content/uploads/2024/05/Testi-Wiranto-150x150.png" alt="Wiranto" class="w-16 h-16 rounded-full border-2 border-gold shadow-md object-cover bg-white">
+                    </div>
+                </div>
+
+                <!-- Testimoni 2 -->
+                <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] relative bg-white border border-gray-200 rounded-2xl p-6 pt-10 shadow-lg flex flex-col justify-between mt-8">
+                    <div class="absolute -top-6 -left-2 w-12 h-12 bg-white rounded-full flex items-center justify-center border shadow-sm">
+                        <i class="fas fa-quote-left text-gold text-xl"></i>
+                    </div>
+                    
+                    <p class="text-gray-700 italic mb-6">"Kenapa PAN mengambil keputusan itu Saudara-saudara, kami sudah 10 tahun, bareng dengan pak prabowo. kalau tinggal sedikit kenapa tidak sabar. <strong>Kami meyakini perjuangan 10 tahun itu akan tuntas.</strong>"</p>
+                    
+                    <div class="flex items-end justify-between mt-auto bg-gradient-to-t from-gray-100 to-transparent -mx-6 -mb-6 p-6 rounded-b-2xl border-t border-gray-100">
+                        <div>
+                            <h4 class="font-poppins font-bold text-gray-900">Zulkifli Hasan</h4>
+                            <p class="text-xs text-gold font-semibold uppercase">Ketua Umum PAN</p>
+                        </div>
+                        <img src="https://prabowosubianto.com/wp-content/uploads/2024/05/Testi-Zulkifli-Hasan-150x150.png" alt="Zulkifli Hasan" class="w-16 h-16 rounded-full border-2 border-gold shadow-md object-cover bg-white">
+                    </div>
+                </div>
+
+                <!-- Testimoni 3 -->
+                <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] relative bg-white border border-gray-200 rounded-2xl p-6 pt-10 shadow-lg flex flex-col justify-between mt-8">
+                    <div class="absolute -top-6 -left-2 w-12 h-12 bg-white rounded-full flex items-center justify-center border shadow-sm">
+                        <i class="fas fa-quote-left text-gold text-xl"></i>
+                    </div>
+                    
+                    <p class="text-gray-700 italic mb-6">"<strong>Mas Bowo jaga kesehatan, kita harus terus berjuang untuk NKRI yang kita cintai.</strong>"</p>
+                    
+                    <div class="flex items-end justify-between mt-auto bg-gradient-to-t from-gray-100 to-transparent -mx-6 -mb-6 p-6 rounded-b-2xl border-t border-gray-100">
+                        <div>
+                            <h4 class="font-poppins font-bold text-gray-900">Habib M. Luthfi</h4>
+                            <p class="text-xs text-gold font-semibold uppercase">Tokoh NU</p>
+                        </div>
+                        <img src="https://prabowosubianto.com/wp-content/uploads/2024/05/Testi-habib-lutfi-150x150.png" alt="Habib Luthfi" class="w-16 h-16 rounded-full border-2 border-gold shadow-md object-cover bg-white">
+                    </div>
+                </div>
+
+                <!-- Testimoni 4 -->
+                <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw] relative bg-white border border-gray-200 rounded-2xl p-6 pt-10 shadow-lg flex flex-col justify-between mt-8">
+                    <div class="absolute -top-6 -left-2 w-12 h-12 bg-white rounded-full flex items-center justify-center border shadow-sm">
+                        <i class="fas fa-quote-left text-gold text-xl"></i>
+                    </div>
+                    
+                    <p class="text-gray-700 italic mb-6">"Dua kali Pilpres juga menang. Mohon Maaf, Pak Prabowo. <strong>Kelihatannya setelah ini jatahnya Pak Prabowo.</strong>"</p>
+                    
+                    <div class="flex items-end justify-between mt-auto bg-gradient-to-t from-gray-100 to-transparent -mx-6 -mb-6 p-6 rounded-b-2xl border-t border-gray-100">
+                        <div>
+                            <h4 class="font-poppins font-bold text-gray-900">Joko Widodo</h4>
+                            <p class="text-xs text-gold font-semibold uppercase">Presiden RI Ke-7</p>
+                        </div>
+                        <img src="https://prabowosubianto.com/wp-content/uploads/2024/05/Testi-Jokowi-150x150.png" alt="Jokowi" class="w-16 h-16 rounded-full border-2 border-gold shadow-md object-cover bg-white">
+                    </div>
+                </div>
+
+            </div>
+            <div class="text-center mt-2 text-gray-400 text-sm md:hidden">
+                <i class="fas fa-arrows-alt-h mr-2"></i> Geser
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action & Footer -->
+    <footer class="bg-darkBg text-white pt-16 pb-8 border-t-[8px] border-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
+                
+                <!-- CTA Join Form -->
+                <div class="lg:col-span-1">
+                    <h3 class="text-2xl font-poppins font-light mb-1">Ayo Bergabung bersama</h3>
+                    <h2 class="text-3xl font-poppins font-bold text-gold mb-2">INDONESIA MAJU</h2>
+                    <p class="text-gray-400 text-sm mb-6">Ambil Peran Menuju Indonesia Emas 2045</p>
+                    
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Nama" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-gold text-white placeholder-gray-500">
+                        <input type="email" placeholder="Email" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-gold text-white placeholder-gray-500" required>
+                        <input type="tel" placeholder="Nomer Telepon" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-gold text-white placeholder-gray-500">
+                        <button type="submit" class="w-full bg-gold hover:bg-goldHover text-white font-poppins font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-[1.02]">
+                            Bergabung
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Footer Logo & Socials -->
+                <div class="lg:col-span-1 flex flex-col items-center justify-center border-y border-gray-800 md:border-y-0 md:border-x py-8 md:py-0">
+                    <img src="https://prabowosubianto.com/wp-content/uploads/2023/12/TTD-Prabowo-300x88.png" alt="Logo" class="h-16 mb-8 brightness-0 invert opacity-80 hover:opacity-100 transition">
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#1877F2] transition duration-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#1DA1F2] transition duration-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#FF0000] transition duration-300"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#E1306C] transition duration-300"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-white hover:text-black transition duration-300"><i class="fab fa-wikipedia-w"></i></a>
+                    </div>
+                </div>
+
+                <!-- Image Banner & Email -->
+                <div class="lg:col-span-1 flex flex-col justify-center">
+                    <img src="https://prabowosubianto.com/wp-content/uploads/2024/02/PRABOWO-SUBIANTO-BERSAMA-INDONESIA-MAJU-1024x517.jpg" alt="Bersama Indonesia Maju" class="w-full rounded-xl shadow-lg mb-6 border border-gray-800">
+                    <div class="text-center md:text-left">
+                        <p class="text-gray-400 text-sm">Email :</p>
+                        <a href="mailto:info@prabowosubianto.com" class="font-bold text-gold hover:underline">info@prabowosubianto.com</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; Copyright 2026 Tim Senopati Hamdan Hamedan</p>
+                <div class="flex space-x-6 mt-4 md:mt-0 font-poppins">
+                    <a href="#" class="hover:text-gold transition">Disclaimer</a>
+                    <a href="#" class="hover:text-gold transition">Terms Of Service</a>
+                    <a href="#" class="hover:text-gold transition">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md', 'bg-white');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('shadow-md');
+                // Keep it white on mobile due to menu, but can be transparent on large displays if hero is top-aligned
+            }
+        });
+    </script>
+</body>
+</html>
